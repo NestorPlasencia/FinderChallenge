@@ -11,9 +11,16 @@ function buttonStatus() {
 	}
 }
 
-function uniKeyCode(e) {
+function enterPress(event) {
 	var key = event.keyCode;
 	if (key == 13 && submit.disabled == false ) {
-		searchForm()
+		let lista = document.querySelectorAll("#awesomplete_list_1 li")
+		let flag = false
+		lista.forEach(item => {
+			if(item.attributes['aria-selected'].value == 'true') {
+				flag = true
+			}
+		})	
+		flag == true ?	setTimeout(function(){ searchForm() }, 500) : searchForm()	
 	}
 }

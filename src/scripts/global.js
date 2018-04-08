@@ -26,7 +26,7 @@ var input = document.getElementById("search")
 var submit = document.getElementById("submit")
 
 //Numero maximo de items iniciales
-var maxItems = 15
+var maxItems = 9
 
 function renderItems() {
     let elements = globalData.filter((item,ind) => ind < maxItems )
