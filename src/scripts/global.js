@@ -1,3 +1,5 @@
+/*Lectura y rendereo de items */
+
 let JSON_FILE = "books-schema.json"
 
 let loadJSON = function(url, callback){
@@ -20,6 +22,8 @@ loadJSON(JSON_FILE,function(data,response) {
     listTitles(globalData)
 })
 
+/*Variable Globales*/
+
 var content = document.getElementById("content")
 var input = document.getElementById("search")
 var submit = document.getElementById("submit")
@@ -30,14 +34,17 @@ var filterData = []
 var iInitial = 0
 var iFinal = 8
 
+/*Funcion encargada de dividir los listados de 9 en 9*/
 function pageFilter(items){
     let numerPage = Math.ceil(items.length/9)
     iInitial == 0 ? prev.classList.add("hide-link") : prev.classList.remove("hide-link")
     iFinal == numerPage*9 - 1 ? next.classList.add("hide-link") : next.classList.remove("hide-link")
+    /*Listar los primeros 9 items */
     let elements = items.filter((item,ind) => iInitial <= ind && ind <= iFinal )
     renderItems(elements)
 }
 
+/*Funcion para renderear items*/
 function renderItems(items) {
     deletedItems()
     items.forEach( item => {
@@ -45,11 +52,14 @@ function renderItems(items) {
     })
 }
 
+/*Funcion para listar los titulos en las sugerencias*/
 function listTitles(items) {
     let titles = []
     items.forEach( item => {
        titles.push(item.title) 
     })
+    /*Debe permitir autocompletar el título de un libro a buscar a partir del 3er caracter,
+    y las 7 posibilidades debe mostrar como máximo*/
     new Awesomplete(input, {
         list: titles,
         minChars: 3,
@@ -57,12 +67,14 @@ function listTitles(items) {
     })
 }
 
+/*Funcion para eliminar todos items*/
 function deletedItems() {
     while (content.firstChild) {
         content.removeChild(content.firstChild);
     }
 } 
 
+/*Funcion para crear items a ser ingresados al DOM*/
 function createCard(element) {
 
     let card = document.createElement("DIV")
