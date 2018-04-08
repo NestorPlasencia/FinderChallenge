@@ -16,7 +16,7 @@ Este desafío contiene las siguientes herramientas:
 
 Se requiere tener las últimas versiones instaladas de:
 
-- [nodejs - recomendable v.5.0.0](https://nodejs.org/es/)
+- [nodejs - recomendable v.8.0.0](https://nodejs.org/es/)
 
 - [bower - recomendable v.1.8.x](https://bower.io/)
 
