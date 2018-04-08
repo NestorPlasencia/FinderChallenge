@@ -6,7 +6,8 @@ html(lang="es")
         meta(viewport="width=device-width, initial-scale=1.0")
         link(href="https://fonts.googleapis.com/css?family=Proxima+Nova", rel="stylesheet", type="text/css")
         link(href="/styles/index.css", rel="stylesheet")
-
+        link(href="/styles/awesomplete.css", rel="stylesheet")
+        script(src="/vendor/awesomplete/awesomplete.js")
     body
         .app
             header.d-flex.justify-content-around
@@ -14,25 +15,9 @@ html(lang="es")
                     h1.logo Finder challenge!
                 .search-form-container
                     include blocks/search-form
-            #content.d-flex.justify-content-between.flex-wrap
-                .card.d-flex.flex-column.align-items-center
-                    img.item-img(src="http://dummyimage.com/150x150/DDDDDD/000000/&text=Devil At The Catacombs")
-                    h3.item-title  Devil At The Catacombs
-                    p.item-description Et porro recusandae labore cum labore esse aperiam. Aut id dolorum praesentium quidem eveniet optio quas cupiditate dolorem. Cupiditate vel animi nulla aspernatur nemo.
-                .card.d-flex.flex-column.align-items-center
-                    img.item-img(src="http://dummyimage.com/150x150/DDDDDD/000000/&text=Devil At The Catacombs")
-                    h3.item-title  Devil At The Catacombs
-                    p.item-description Et porro recusandae labore cum labore esse aperiam. Aut id dolorum praesentium quidem eveniet optio quas cupiditate dolorem. Cupiditate vel animi nulla aspernatur nemo.
-                .card.d-flex.flex-column.align-items-center
-                    img.item-img(src="http://dummyimage.com/150x150/DDDDDD/000000/&text=Devil At The Catacombs")
-                    h3.item-title  Devil At The Catacombs
-                    p.item-description Et porro recusandae labore cum labore esse aperiam. Aut id dolorum praesentium quidem eveniet optio quas cupiditate dolorem. Cupiditate vel animi nulla aspernatur nemo.
-                .card.d-flex.flex-column.align-items-center
-                    img.item-img(src="http://dummyimage.com/150x150/DDDDDD/000000/&text=Devil At The Catacombs")
-                    h3.item-title  Devil At The Catacombs
-                    p.item-description Et porro recusandae labore cum labore esse aperiam. Aut id dolorum praesentium quidem eveniet optio quas cupiditate dolorem. Cupiditate vel animi nulla aspernatur nemo.
-    
+            #content.d-flex.justify-content-around.flex-wrap    
         //- app scripts self
+        
         script(src="/scripts/global.js")
         script(src="/scripts/search-form.js")
         script(src="/scripts/app.js")
