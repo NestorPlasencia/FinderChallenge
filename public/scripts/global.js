@@ -1,5 +1,3 @@
-// Lectura, rendereo y listado de sugerencias 
-
 let JSON_FILE = "books-schema.json"
 
 let loadJSON = function(url, callback){
@@ -14,30 +12,42 @@ let loadJSON = function(url, callback){
     }
     xobj.send(null)
 }
+
 loadJSON(JSON_FILE,function(data,response) {
     globalData = data.data
-    renderItems()
-    listTitles()
+    filterData = globalData
+    pageFilter(filterData)
+    listTitles(globalData)
 })
 
-var globalData = []
 var content = document.getElementById("content")
 var input = document.getElementById("search")
 var submit = document.getElementById("submit")
+var prev = document.getElementById("prev")
+var next = document.getElementById("next")
+var globalData = []
+var filterData = []
+var iInitial = 0
+var iFinal = 8
 
-//Numero maximo de items iniciales
-var maxItems = 9
+function pageFilter(items){
+    let numerPage = Math.ceil(items.length/9)
+    iInitial == 0 ? prev.classList.add("hide-link") : prev.classList.remove("hide-link")
+    iFinal == numerPage*9 - 1 ? next.classList.add("hide-link") : next.classList.remove("hide-link")
+    let elements = items.filter((item,ind) => iInitial <= ind && ind <= iFinal )
+    renderItems(elements)
+}
 
-function renderItems() {
-    let elements = globalData.filter((item,ind) => ind < maxItems )
-    elements.forEach( element => {
-        content.appendChild(createCard(element))
+function renderItems(items) {
+    deletedItems()
+    items.forEach( item => {
+        content.appendChild(createCard(item))
     })
 }
 
-function listTitles() {
+function listTitles(items) {
     let titles = []
-    globalData.forEach( item => {
+    items.forEach( item => {
        titles.push(item.title) 
     })
     new Awesomplete(input, {

@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Proxima+Nova" rel="stylesheet" type="text/css">
     <link href="/styles/index.css" rel="stylesheet">
     <link href="/styles/awesomplete.css" rel="stylesheet">
-    <script src="/vendor/awesomplete/awesomplete.js"></script>
   </head>
   <body>
     <div class="app">
@@ -18,12 +17,14 @@
         <div class="search-form-container">
           <div class="search-form">
             <input onkeydown="enterPress(event)" id="search">
-            <button type="button" disabled id="submit">Buscar</button><a class="save-search" href="">Guardar búsqueda</a>
+            <button type="button" disabled id="submit">Buscar</button><a class="link save-search">Guardar búsqueda</a>
           </div>
         </div>
       </header>
       <div class="container-fluid" id="content"></div>
+      <footer class="container-fluid"><a class="link" id="prev"><- Anterior</a><a class="link" id="next">Siguiente ->  </a></footer>
     </div>
+    <script src="/vendor/awesomplete/awesomplete.js"></script>
     <script src="/scripts/global.js"></script>
     <script src="/scripts/search-form.js"></script>
     <script src="/scripts/app.js"></script>

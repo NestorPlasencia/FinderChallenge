@@ -7,7 +7,6 @@ html(lang="es")
         link(href="https://fonts.googleapis.com/css?family=Proxima+Nova", rel="stylesheet", type="text/css")
         link(href="/styles/index.css", rel="stylesheet")
         link(href="/styles/awesomplete.css", rel="stylesheet")
-        script(src="/vendor/awesomplete/awesomplete.js")
     body
         .app
             header.container-fluid
@@ -16,7 +15,10 @@ html(lang="es")
                 .search-form-container
                     include blocks/search-form
             #content.container-fluid
-        
+            footer.container-fluid
+                a.link#prev <- Anterior
+                a.link#next Siguiente ->  
+        script(src="/vendor/awesomplete/awesomplete.js")
         script(src="/scripts/global.js")
         script(src="/scripts/search-form.js")
         script(src="/scripts/app.js")
