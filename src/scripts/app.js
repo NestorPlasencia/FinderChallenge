@@ -1,3 +1,4 @@
+/* Elementos del DOM declarados en global.js */
 search.addEventListener("keyup", buttonStatus)
 submit.addEventListener("click", searchForm)
 next.addEventListener("click", nextItems)

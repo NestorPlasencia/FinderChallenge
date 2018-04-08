@@ -1,4 +1,4 @@
-/*Lectura y rendereo de items */
+/* Lectura y rendereo de items  */
 
 let JSON_FILE = "books-schema.json"
 
@@ -22,44 +22,44 @@ loadJSON(JSON_FILE,function(data,response) {
     listTitles(globalData)
 })
 
-/*Variable Globales*/
+/* Variable Globales */
 
-var content = document.getElementById("content")
-var input = document.getElementById("search")
-var submit = document.getElementById("submit")
-var prev = document.getElementById("prev")
-var next = document.getElementById("next")
+const content = document.getElementById("content")
+const input = document.getElementById("search")
+const submit = document.getElementById("submit")
+const prev = document.getElementById("prev")
+const next = document.getElementById("next")
 var globalData = []
 var filterData = []
 var iInitial = 0
 var iFinal = 8
 
-/*Funcion encargada de dividir los listados de 9 en 9*/
-function pageFilter(items){
+/* Funcion encargada de dividir los listados de 9 en 9 */
+const pageFilter = (items) => {
     let numerPage = Math.ceil(items.length/9)
     iInitial == 0 ? prev.classList.add("hide-link") : prev.classList.remove("hide-link")
     iFinal == numerPage*9 - 1 ? next.classList.add("hide-link") : next.classList.remove("hide-link")
-    /*Listar los primeros 9 items */
+    /* Listar los primeros 9 items  */
     let elements = items.filter((item,ind) => iInitial <= ind && ind <= iFinal )
     renderItems(elements)
 }
 
-/*Funcion para renderear items*/
-function renderItems(items) {
+/* Funcion para renderear items */
+const renderItems = (items) => {
     deletedItems()
     items.forEach( item => {
         content.appendChild(createCard(item))
     })
 }
 
-/*Funcion para listar los titulos en las sugerencias*/
-function listTitles(items) {
+/* Funcion para listar los titulos en las sugerencias */
+const listTitles = (items) => {
     let titles = []
     items.forEach( item => {
        titles.push(item.title) 
     })
-    /*Debe permitir autocompletar el título de un libro a buscar a partir del 3er caracter,
-    y las 7 posibilidades debe mostrar como máximo*/
+    /* Debe permitir autocompletar el título de un libro a buscar a partir del 3er caracter,
+    y las 7 posibilidades debe mostrar como máximo */
     new Awesomplete(input, {
         list: titles,
         minChars: 3,
@@ -67,15 +67,15 @@ function listTitles(items) {
     })
 }
 
-/*Funcion para eliminar todos items*/
-function deletedItems() {
+/* Funcion para eliminar todos items */
+const deletedItems = () => {
     while (content.firstChild) {
-        content.removeChild(content.firstChild);
+        content.removeChild(content.firstChild)
     }
 } 
 
-/*Funcion para crear items a ser ingresados al DOM*/
-function createCard(element) {
+/* Funcion para crear items a ser ingresados al DOM */
+const createCard = (element) => {
 
     let card = document.createElement("DIV")
     card.className = "card"
