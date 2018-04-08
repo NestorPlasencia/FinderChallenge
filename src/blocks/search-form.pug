@@ -1,4 +1,4 @@
 .search-form
-    input(type="email")#search
-    button(type='button') Buscar
+    input(onkeydown="uniKeyCode(event)")#search
+    button(type='button' disabled=true)#submit Buscar
     a(href="").save-search Guardar búsqueda

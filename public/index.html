@@ -11,18 +11,18 @@
   </head>
   <body>
     <div class="app">
-      <header class="d-flex justify-content-around">
+      <header class="container-fluid">
         <div class="logo-container">
           <h1 class="logo">Finder challenge!</h1>
         </div>
         <div class="search-form-container">
           <div class="search-form">
-            <input type="email" id="search">
-            <button type="button">Buscar</button><a class="save-search" href="">Guardar búsqueda</a>
+            <input onkeydown="uniKeyCode(event)" id="search">
+            <button type="button" disabled id="submit">Buscar</button><a class="save-search" href="">Guardar búsqueda</a>
           </div>
         </div>
       </header>
-      <div class="d-flex justify-content-around flex-wrap" id="content">   </div>
+      <div class="container-fluid" id="content"></div>
     </div>
     <script src="/scripts/global.js"></script>
     <script src="/scripts/search-form.js"></script>

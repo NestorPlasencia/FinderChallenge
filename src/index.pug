@@ -10,13 +10,12 @@ html(lang="es")
         script(src="/vendor/awesomplete/awesomplete.js")
     body
         .app
-            header.d-flex.justify-content-around
+            header.container-fluid
                 .logo-container
                     h1.logo Finder challenge!
                 .search-form-container
                     include blocks/search-form
-            #content.d-flex.justify-content-around.flex-wrap    
-        //- app scripts self
+            #content.container-fluid
         
         script(src="/scripts/global.js")
         script(src="/scripts/search-form.js")
